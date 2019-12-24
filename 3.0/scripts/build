@@ -1,0 +1,13 @@
+if [ -e build-meson ]
+then
+  cd build-meson
+  ninja || exit 1 
+  cd ..
+else
+  if [ -e Makefile.PL ]
+  then
+    perl Makefile.PL INSTALLDIRS=vendor
+  else
+    make
+  fi
+fi
